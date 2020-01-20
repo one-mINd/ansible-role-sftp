@@ -132,7 +132,7 @@
 # Handle with custom sftp_host_keys
 - name: SFTP-Server | Create SSH host keys
   copy:
-    path: "/etc/ssh/ssh_host_{{ item.key }}_key.pub"
+    dest: "/etc/ssh/ssh_host_{{ item.key }}_key.pub"
     owner: root
     group: root
     mode: 0644
