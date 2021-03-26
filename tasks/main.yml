@@ -46,7 +46,8 @@
 - name: SFTP-Server | Create sftp users
   user:
     name: "{{ item.name }}"
-    groups: "{{ item.groups | default(omit) }}"
+    group: "{{ sftp_group_name }}"
+    groups: "{{ item.groups|join(',') }}"
     append: "{{ item.append | default(False) }}"
     home: "{{ item.home | default(sftp_home_partition + '/' + item.name) }}"
     uid: "{{ item.uid | default(omit) }}"
