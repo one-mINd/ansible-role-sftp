@@ -4,30 +4,30 @@ services: docker
 
 env:
   global:
-  - ROLE_NAME: sftp
+    - ROLE_NAME: sftp
   matrix:
-  - MOLECULE_DISTRO: centos8
-  - MOLECULE_DISTRO: centos7
-  - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: centos8
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: ubuntu1804
 
 addons:
   apt:
     packages:
-    - docker-ce
+      - docker-ce
 
 install:
-# Install test dependencies.
-- pip install molecule molecule-docker yamllint ansible-lint docker ansible
+  # Install test dependencies.
+  - pip install molecule molecule-docker yamllint ansible-lint docker ansible
 
 before_script:
-# Use actual Ansible Galaxy role name for the project directory.
-- cd ../
-- mv ansible-role-$ROLE_NAME xat59.$ROLE_NAME
-- cd xat59.$ROLE_NAME
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME xat59.$ROLE_NAME
+  - cd xat59.$ROLE_NAME
 
 script:
-# Run tests.
-- molecule test
+  # Run tests.
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
