@@ -12,9 +12,7 @@
   - role: xat59.sftp
 
   post_tasks:
-  - name: Ensure sshd is running.
-    wait_for:
-      port: 22
-      host: localhost
-    retries: 60
-    delay: 1
+  - name: Ensure default SFTP group exists
+    group:
+      name: sftpusers
+      state: present
