@@ -18,6 +18,13 @@
 
   roles:
   - role: xat59.sftp
+    vars:
+      sftp_users:
+      - name: c1111
+        password: "$1$salty$li5TXAa2G6oxHTDkqx3Dz/" # passpass
+        shell: false
+        append: true
+        group: sftpusers
 
   post_tasks:
   - name: Ensure default SFTP group exists
