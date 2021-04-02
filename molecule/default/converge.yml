@@ -8,6 +8,14 @@
     apt: update_cache=true cache_valid_time=600
     when: ansible_os_family == 'Debian'
 
+  - name: Install SSH server
+    apt: name=openssh-server
+    when: ansible_os_family == 'Debian'
+
+  - name: Install SSH server
+    yum: name=openssh-server
+    when: ansible_os_family == 'RedHat'
+
   roles:
   - role: xat59.sftp
 
