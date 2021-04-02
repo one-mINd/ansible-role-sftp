@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  author: Jérémy Descamps
+  author: xat59
+  role_name: sftp
   description: "Setup chrooted SFTP service on top of OpenSSH"
   license: MIT
   min_ansible_version: 2.0
