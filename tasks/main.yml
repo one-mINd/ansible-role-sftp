@@ -66,7 +66,7 @@
 - name: SFTP-Server | Correct ownership and permission of home directories
   file:
     path: "{{ item.home | default(sftp_home_partition + '/' + item.name) }}"
-    owner: root
+    owner: "{{ item.name }}"
     group: "{{ sftp_chroot_group }}"
     mode: "0750"
   with_items: "{{ sftp_users }}"
